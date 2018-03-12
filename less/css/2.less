@@ -1,0 +1,79 @@
+//变量
+
+@min:50px;
+.box{width:@min;height:@min;background:green; .border1px}
+//混合
+.border1px{border:2px solid pink;}
+
+  //混合传参,可以赋值默认值
+
+.border_radius(@radiusdeg:10px){
+    border-radius:@radiusdeg;
+} 
+.box{
+    .border_radius()
+} 
+.box2{
+    .box;
+    .border_radius(30px)
+}
+
+// 匹配模式,根据传参的不同来匹配
+
+.p(r){
+    position:relative;
+}
+.p(f){
+    position:fixed;
+}
+.p(a){
+    position:absolute;
+}
+
+.box3{
+    .box;
+    .p(a) ;//参数传a 就是绝对定位
+
+    .p(f); //参数产f 就是fixed定位
+
+}
+//接下来我们写一个稍微复杂点的匹配模式
+
+//三角顶部朝上
+.Triangle(top,@border-w:10px,@color:green){
+     border-width:@border-w;
+     border-color:transparent transparent @color transparent;
+     border-style: dashed  dashed   solid dashed ;
+}
+
+//三角顶部朝下
+.Triangle(bottom,@border-w:10px,@color:green){
+    border-width:@border-w;
+    border-color:@color transparent transparent  transparent;
+    border-style:solid  dashed  dashed  dashed ;
+}
+//三角顶部朝左
+.Triangle(left, @border-w, @color){
+    border-width:@border-w;
+    border-color:transparent @color transparent transparent;
+    border-style:dashed  solid dashed  dashed ;
+}
+
+//三角顶部朝右
+.Triangle(right,@border-w,@color){
+  border-width:@border-w;
+  border-color:transparent transparent transparent @color;
+  border-style:dashed  dashed  dashed solid;
+}
+//这一部分是相当于公共部分.始终带着,其中第一个参数固定写法,后面的两个参数也必须带着.
+.Triangle(@_,@border-w:50px,@color:green){
+    width:0px;
+    height:0px;
+}
+.mt200{margin-top:200px;}
+.box4{
+    .Triangle(top);
+    width:0px;
+    height:0px;
+    .mt200;
+}

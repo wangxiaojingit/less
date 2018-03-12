@@ -1,0 +1,29 @@
+.box {
+  width: 40px;
+}
+.box1 {
+  width: 100px;
+  height: 100px;
+  background: pink;
+}
+.box1:hover {
+  width: 20px;
+  height: 20px;
+  background: green;
+}
+.box3 {
+  border: 20px solid #008000;
+}
+.box3 {
+  width: calc(300px - 30px);;
+}
+.box4 {
+  width: 100px !important;
+  height: 100px !important;
+  background: pink !important;
+}
+.box4:hover {
+  width: 20px !important;
+  height: 20px !important;
+  background: green !important;
+}

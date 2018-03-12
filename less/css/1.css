@@ -1,0 +1,6 @@
+/*在less 中这种带星的注释可以被编译到css中*/
+.box {
+  width: 10px;
+  height: 10px;
+  background: green;
+}

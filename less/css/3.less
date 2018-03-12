@@ -1,0 +1,35 @@
+//less 可以运算
+@a:20px;
+.box{
+    width:@a+20;
+}
+//less 里面的嵌套,& 代表上一级
+
+.box1{
+    width:100px;
+    height:100px;
+    background:pink;
+    &:hover{
+      width:20px;
+      height:20px;
+      background:green;
+    }
+}
+//@arguments 的用法
+
+.border(@w:1px,@style:solid,@color:green){
+  // border:@w @style @color;
+     border:@arguments
+
+}
+.box3{.border(20px)}
+
+//避免编译 ~加双引号或者单引号
+.box3{
+  width:~'calc(300px - 30px);' 
+}
+
+//增强优先级 !important
+.box4{
+    .box1 !important;
+}
